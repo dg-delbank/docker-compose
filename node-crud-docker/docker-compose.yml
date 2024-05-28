@@ -36,8 +36,8 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
 
-  networks:
-      - uaifai
+networks:
+    uaifai:
 
 volumes:
   pgdata:
