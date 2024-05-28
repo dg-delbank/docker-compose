@@ -1,24 +1,10 @@
 version: '3.8'
 
 services:
-  app1:
+  app:
     build: .
     ports:
       - "3000:3000"
-    depends_on:
-      - db
-    environment:
-      - DB_HOST=db
-      - DB_USER=user
-      - DB_PASSWORD=password
-      - DB_NAME=mydb
-    networks:
-      - uaifai
-    
-  app2:
-    build: https://github.com/dg-delbank/auth.git
-    ports:
-      - "4000:4000"
     depends_on:
       - db
     environment:
