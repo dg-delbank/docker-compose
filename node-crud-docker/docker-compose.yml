@@ -15,7 +15,7 @@ services:
     networks:
       - uaifai
   app2:
-    build: ./app2
+    build: https://github.com/dg-delbank/auth.git
     ports:
       - "4000:4000"
     depends_on:
