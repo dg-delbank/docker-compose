@@ -1,8 +1,8 @@
 version: '3.8'
 
 services:
-  app:
-    build: .
+  app1:
+    build: ./app1
     ports:
       - "3000:3000"
     depends_on:
@@ -12,8 +12,10 @@ services:
       - DB_USER=user
       - DB_PASSWORD=password
       - DB_NAME=mydb
-  auth:
-    build: https://github.com/dg-delbank/auth.git
+    networks:
+      - uaifai
+  app2:
+    build: ./app2
     ports:
       - "4000:4000"
     depends_on:
@@ -23,6 +25,8 @@ services:
       - DB_USER=user
       - DB_PASSWORD=password
       - DB_NAME=mydb
+    networks:
+      - uaifai
   db:
     image: postgres:13
     environment:
@@ -31,6 +35,9 @@ services:
       POSTGRES_DB: mydb
     volumes:
       - pgdata:/var/lib/postgresql/data
+
+  networks:
+      - uaifai
 
 volumes:
   pgdata:
