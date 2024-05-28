@@ -12,8 +12,6 @@ services:
       - DB_USER=user
       - DB_PASSWORD=password
       - DB_NAME=mydb
-    networks:
-      - uaifai
   db:
     image: postgres:13
     environment:
@@ -22,9 +20,6 @@ services:
       POSTGRES_DB: mydb
     volumes:
       - pgdata:/var/lib/postgresql/data
-
-networks:
-    uaifai:
 
 volumes:
   pgdata:
